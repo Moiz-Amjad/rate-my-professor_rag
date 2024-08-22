@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { Box, TextField, Button, Typography, Paper } from "@mui/material";
 
 export default function ChatWindow() {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content: "Hello! I'm the Rate My Professor support assistant. How can I help you today?",
+      content:
+        "Hello! I'm the Rate My Professor support assistant. How can I help you today?",
     },
   ]);
   const [message, setMessage] = useState("");
@@ -32,7 +33,9 @@ export default function ChatWindow() {
         if (done) {
           return result;
         }
-        const text = decoder.decode(value || new Uint8Array(), { stream: true });
+        const text = decoder.decode(value || new Uint8Array(), {
+          stream: true,
+        });
         setMessages((messages) => {
           let lastMessage = messages[messages.length - 1];
           let otherMessages = messages.slice(0, messages.length - 1);
@@ -85,7 +88,8 @@ export default function ChatWindow() {
                 alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
                 p: 2,
                 borderRadius: 2,
-                bgcolor: msg.role === "user" ? "primary.main" : "background.paper",
+                bgcolor:
+                  msg.role === "user" ? "primary.main" : "background.paper",
                 color: msg.role === "user" ? "common.white" : "text.primary",
               }}
             >
