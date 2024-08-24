@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { AppBar, Box, Button, Grid, Toolbar, Typography } from '@mui/material'
 import Head from 'next/head'
 import React from 'react';
+import "./styles/globals.css";
+
 import Link from 'next/link';
 import ChatWindow from './pages/ChatWindow';
 import Container from '@mui/material/Container';
