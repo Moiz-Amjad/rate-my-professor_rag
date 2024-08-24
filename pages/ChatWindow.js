@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Box, TextField, Button, Typography, Paper } from "@mui/material";
+import { Box, TextField, Button, Typography, Paper, Toolbar, AppBar } from "@mui/material";
+import "../styles/globals.css";
+import Container from '@mui/material/Container';
+import Image from 'next/image'
+import Head from 'next/head'
+import Link from 'next/link';
+
 
 export default function ChatWindow() {
   const [messages, setMessages] = useState([
@@ -50,6 +56,28 @@ export default function ChatWindow() {
   };
 
   return (
+    <Container maxWidth="100vh" id="home-root" style={{ backgroundImage: "url('/images/ratemyprofnew.jpg')", backgroundSize: 'cover', backdropFilter: 'blur(90px)', backgroundPosition: 'center', padding: '0', justifyContent: 'center' }}>
+        <Head>
+          <title>Rate My Professor Chatbot Assistant</title>
+          <meta name="description" content="Your friendly assistant for Rate My Professor" />
+        </Head>
+        
+        {/* Transparent AppBar */}
+        <AppBar position="sticky" sx={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.5)'}}>
+          <Toolbar>
+            <Typography variant="h6" sx={{ flexGrow: 1, color: '#FFFFFF', fontWeight: 'bold' }}>
+              <Link href="/" style={{ color: '#FFFFFF', textDecoration: 'none' }}>
+                RateMyProfChat
+              </Link>
+            </Typography>
+              <Button sx={{ color: '#FFFFFF', borderRadius: '20px', padding: '8px 16px', marginRight: '16px', ":hover": { backgroundColor: 'rgba(255, 255, 255, 0.1)' }}}>
+                LOG IN
+              </Button>
+              <Button sx={{ color: '#FFFFFF', borderRadius: '20px', padding: '8px 16px', border: '1px solid #FFFFFF', ":hover": { backgroundColor: 'rgba(255, 255, 255, 0.1)' }}}>
+                SIGN UP
+              </Button>
+          </Toolbar>
+        </AppBar>
     <Box
       sx={{
         display: "flex",
@@ -127,5 +155,6 @@ export default function ChatWindow() {
         </Box>
       </Paper>
     </Box>
+  </Container>
   );
 }

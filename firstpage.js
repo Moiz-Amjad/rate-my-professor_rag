@@ -4,15 +4,20 @@ import { AppBar, Box, Button, Grid, Toolbar, Typography } from '@mui/material'
 import Head from 'next/head'
 import React from 'react';
 import Link from 'next/link';
-import ChatWindow from './components/ChatWindow';
+import ChatWindow from './pages/ChatWindow';
 import Container from '@mui/material/Container';
+import { useState } from 'react';
 
 
-  const getStarted = async () => {
-    return <ChatWindow />;
-  }
 export default function FirstPage() {
+  const [showChat, setShowChat] = useState(false); // State to control whether to show the ChatWindow
+
+  const getStarted = () => {
+    setShowChat(true); // Set to true to show the ChatWindow
+  };
+  
   return (
+    <React.Fragment>
       <Container maxWidth="100vh" id="home-root" style={{ backgroundImage: "url('/images/ratemyprofnew.jpg')", backgroundSize: 'cover', backdropFilter: 'blur(90px)', backgroundPosition: 'center', padding: '0', justifyContent: 'center', minHeight: '100vh' }}>
         <Head>
           <title>Rate My Professor Chatbot Assistant</title>
@@ -36,6 +41,7 @@ export default function FirstPage() {
           </Toolbar>
         </AppBar>
 
+        
         <Box
           sx={{
             display: 'flex',
@@ -68,9 +74,8 @@ export default function FirstPage() {
           <Typography variant="h5" gutterBottom sx={{ color: '#FFFFFF' }}>
             Your AI-powered support for Rate My Professor queries.
           </Typography>
-          <Button 
-            onClick={getStarted} 
-            variant="contained" 
+          <Link href="/ChatWindow" passHref>
+          <Button  
             sx={{ 
               mt: 2, 
               px: 4, 
@@ -84,9 +89,12 @@ export default function FirstPage() {
           >
             Get Started
           </Button>
-          </Box>
+          </Link>
+        </Box>
       
          </Box> 
+        
       </Container>
+      </React.Fragment>
   );
 } 
