@@ -1,6 +1,6 @@
 "use client";
-import ChatWindow from "../components/ChatWindow";
+import FirstPage from "../firstpage";
 
 export default function Home() {
-  return <ChatWindow />;
+  return <FirstPage />;
 }
